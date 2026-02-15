@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoo Machine Voltage Configurator | Poli International</title>
+    <meta name="description" content="Professional voltage and speed calculator for tattoo machines. Find the optimal power settings for lining, shading, and color packing.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- IFRAME CONTENT HIDER -->
+    <script>
+    (function() {
+        'use strict';
+        if (window.self !== window.top) {
+            var style = document.createElement('style');
+            style.textContent = `
+                header, footer, .site-header, .site-footer, .breadcrumb-nav, 
+                .tool-discovery-map, .more-tools-section, .feedback-section, 
+                .related-tools-section, .geo-summary-block, .share-card, 
+                .need-support-card, .explore-all-card, #dark-toggle, 
+                .poli-footer, .poli-global-footer, .tool-standard-breadcrumbs,
+                .feedback-form-section, .email-section, .geo-authority-block { 
+                    display: none !important; 
+                    visibility: hidden !important; 
+                    height: 0 !important;
+                    overflow: hidden !important;
+                } 
+                body { padding: 0 !important; margin: 0 !important; background: transparent !important; }
+            `;
+            document.head.appendChild(style);
+        }
+    })();
+    </script>
+</head>
+<body class="dark-mode">
+
+    <!-- STANDARD HEADER -->
+    <header class="site-header">
+        <div class="container site-header__container">
+            <div class="site-header__logo-container">
+                <img src="images/Poli-International-Co.webp" alt="Poli International" class="site-header__logo">
+            </div>
+            <div class="site-header__title-group">
+                <h2 class="site-header__title">Machine Voltage Configurator</h2>
+                <p class="site-header__subtitle">Optimal Power Calibration for Artists</p>
+            </div>
+            <div class="site-header__actions">
+                <button id="embedBtn" class="btn btn--primary btn--small">
+                    <span class="embed-icon">⚡</span>
+                    <span class="embed-text">Free Embed</span>
+                </button>
+                <a href='https://ko-fi.com/patrickkofi' target='_blank' class="btn btn--secondary btn--small kofi-button">
+                    <span class="kofi-icon">☕</span>
+                    <span class="kofi-text">Support innovation</span>
+                </a>
+                <button id="darkModeToggle" class="btn btn--icon" aria-label="Toggle dark mode">
+                    <span class="dark-mode-icon">◐</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="configurator-engine">
+        <div class="container">
+            <div class="config-grid">
+                <!-- Inputs -->
+                <section class="config-card config-card--inputs">
+                    <div class="section-header">
+                        <h3>Machine Parameters</h3>
+                    </div>
+                    <div class="input-group">
+                        <label>Machine Type</label>
+                        <select id="machine-type" class="form-select">
+                            <option value="rotary">Rotary Machine (Pen/Slider)</option>
+                            <option value="coil">Coil Machine (Traditional)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Stroke Length (mm)</label>
+                        <select id="stroke-length" class="form-select">
+                            <option value="2.5">2.5mm (Soft Shading)</option>
+                            <option value="3.0">3.0mm (All-rounder)</option>
+                            <option value="3.5" selected>3.5mm (Standard)</option>
+                            <option value="4.0">4.0mm (Power Lining)</option>
+                            <option value="4.5">4.5mm (Hard Hitting)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Technique</label>
+                        <div class="technique-grid">
+                            <button class="tech-btn active" data-tech="lining">Lining</button>
+                            <button class="tech-btn" data-tech="shading">Shading</button>
+                            <button class="tech-btn" data-tech="packing">Color Packing</button>
+                            <button class="tech-btn" data-tech="stippling">Stippling</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Visual Dial -->
+                <section class="config-card config-card--display">
+                    <div class="dial-container">
+                        <svg class="dial-svg" viewBox="0 0 200 200">
+                            <circle class="dial-track" cx="100" cy="100" r="80"></circle>
+                            <circle id="dial-value" class="dial-fill" cx="100" cy="100" r="80"></circle>
+                        </svg>
+                        <div class="dial-content">
+                            <span id="voltage-display" class="voltage-number">7.5</span>
+                            <span class="voltage-unit">VOLTS</span>
+                        </div>
+                    </div>
+                    <div class="recommendation-box">
+                        <p id="recommendation-text">Optimal range for Standard Lining with 3.5mm stroke.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Detailed Breakdown -->
+            <section class="breakdown-area">
+                <div class="breakdown-card">
+                    <h4>Technical Analysis</h4>
+                    <div class="specs-list">
+                        <div class="spec-item">
+                            <span class="spec-label">Speed (Hertz)</span>
+                            <span id="speed-hz" class="spec-val">110 Hz</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Impact Force</span>
+                            <span id="impact-force" class="spec-val">Medium-Hard</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Duty Cycle</span>
+                            <span id="duty-cycle" class="spec-val">55%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- STANDARD FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer__content">
+                <div class="site-footer__brand">
+                    <img src="images/Poli-International-Co.webp" alt="Poli International" class="site-footer__logo">
+                    <p class="site-footer__tagline">Scientific Precision in Dermal Pigmentation</p>
+                </div>
+                <div class="site-footer__support">
+                    <p class="support-text">Enjoying this professional tool? Support our innovation.</p>
+                    <a href="https://ko-fi.com/patrickkofi" target="_blank">
+                        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" alt="Buy Me a Coffee" height="50">
+                    </a>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <p class="copyright">© 2026 Poli International Ltd. | Professional Use Only</p>
+                <p class="disclaimer">⚠️ WARNING: Voltage requirements vary significantly by motor efficiency and skin resistance. Always start low and adjust based on visual feedback and needle depth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EMBED MODAL -->
+    <div id="embedModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">🎁 Use This Tool FREE on Your Website!</h2>
+                <span class="modal-close" id="modalClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Embed this professional voltage configurator on your studio site - completely free!</p>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">📋 Copy Embed Code</h3>
+                    <div class="code-container">
+                        <textarea id="embedCode" class="embed-code-textarea" readonly></textarea>
+                        <button id="copyEmbedCode" class="btn btn--primary btn--small">📋 Copy Code</button>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">💾 Download or Explore</h3>
+                    <div class="btn-group">
+                        <a href="embed.html" download class="btn btn--secondary">⬇️ Download HTML</a>
+                        <a href="https://poliinternational.com/tools" target="_blank" class="btn btn--primary">🔗 More Free Tools</a>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">🔔 Get Notified of New Tools!</h3>
+                    <form id="modal-email-form" class="email-form" data-location="modal">
+                        <div class="email-input-group">
+                            <input type="email" class="email-input" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>
