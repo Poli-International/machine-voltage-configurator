@@ -1,126 +1,88 @@
-# Tattoo Machine Voltage Configurator
+# Machine Voltage Configurator
 
-> **Professional voltage and speed calibration tool for rotary and traditional coil tattoo machines.**
+> **Find the right voltage and needle speed for your tattoo machine. Syncs stroke length with hand speed to protect skin and reduce wrist fatigue.**
 
 [![License](https://img.shields.io/github/license/Poli-International/machine-voltage-configurator)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/Poli-International/machine-voltage-configurator)](https://github.com/Poli-International/machine-voltage-configurator/commits/main)
 [![GitHub Stars](https://img.shields.io/github/stars/Poli-International/machine-voltage-configurator?style=social)](https://github.com/Poli-International/machine-voltage-configurator/stargazers)
 
-**Live Tool:** [https://poliinternational.com/machine-voltage-configurator/](https://poliinternational.com/machine-voltage-configurator/)
+**Live Demo:** [https://poliinternational.com/tools/machine-voltage-configurator/](https://poliinternational.com/tools/machine-voltage-configurator/)
 
 ---
 
-## 📋 Overview
+## 🎯 Overview
 
-The **Tattoo Machine Voltage Configurator** is a high-precision engineering tool designed to help professional tattoo artists calibrate their power supplies. By analyzing machine physics, stroke length, and dermal interaction, it provides the optimal voltage range for specific techniques while maintaining dermal integrity.
+Find the right voltage and needle speed for your tattoo machine. Syncs stroke length with hand speed to protect skin and reduce wrist fatigue.
 
-### Key Features
+**Category:** Tattoo Engineering
 
-1. **⚡ Dynamic Voltage Dial**
-   - Interactive SVG-based visualization of power output.
-   - Real-time calibration based on machine motor characteristics.
-   - Precise 0.1V adjustment increments.
-
-2. **⚙️ Machine Type Mapping**
-   - **Rotary Profiles:** Calibration for slider and pen-style motors.
-   - **Coil Profiles:** Traditional electromagnetic frequency mapping.
-
-3. **🎨 Technique-Specific Hertz (Hz) Engine**
-   - **Lining:** Fast, sharp retraction settings (100-140Hz).
-   - **Shading:** Soft impact, low trauma mapping (70-90Hz).
-   - **Color Packing:** High-torque saturation curves.
-   - **Stippling:** Controlled pulse intervals for dot-work.
-
-4. **🔬 Technical Analysis Hub**
-   - Real-time conversion of Volts to Hertz (Machine cycles per second).
-   - Impact Force estimation (Soft, Medium, Hard hitting).
-   - Duty Cycle characteristics for specific machine setups.
+This is a free, open-source widget from the [Poli International Widget Suite](https://poliinternational.com/tools/) - a collection of practical tools for tattoo and piercing studios, artists, and clients. It runs entirely in the browser; no data is sent to a server.
 
 ---
 
-## 🔧 Technical Logic & Algorithms
+## ✨ Features
 
-### Power Calibration Formula
-
-The tool uses a multi-variable linear regression model based on standard motor constants ($K_v$) and machine physics:
-
-```javascript
-voltage = baseVoltage + strokeModifier[length] + techniqueModifier[tech]
-speedHz = voltage × hertzConstant[machineType]
-impactForce = f(voltage, techniqueWeight)
-```
-
-#### Base Parameters
-
-| Machine Type | Base Voltage | Hz Constant |
-| :--- | :--- | :--- |
-| **Rotary** | 5.0V | 15 Hz/V |
-| **Coil** | 4.5V | 18 Hz/V |
-
-#### Stroke Modifiers (2.5mm - 4.5mm)
-- **2.5mm:** -0.5V (Reduced mass momentum)
-- **3.5mm:** +0.5V (Standard equilibrium)
-- **4.5mm:** +1.5V (High resistance compensation)
+- ✅ **Tattoo Machine Voltage**
+- ✅ **Voltage Configurator**
+- ✅ **Tattoo Machine Settings**
+- ✅ **Needle Speed**
+- ✅ **Responsive Design** - works on desktop, tablet, and mobile.
+- ✅ **Free & Open Source** - MIT licensed.
 
 ---
 
-## 📁 File Structure
+## 🎬 Demo
 
-```
-machine-voltage-configurator/
-├── index.html              # Main technical interface
-├── css/
-│   └── style.css          # BEM-standard "Streetwise" styles
-├── js/
-│   ├── database.js        # Motor and technique modifiers
-│   ├── main.js            # Dial logic and Hz calculations
-│   └── common.js          # Unified theme & embed logic
-└── images/
-    └── Poli-International-Co.webp  # Brand Identity
+### Try It Live
+
+**👉 [Use the tool now](https://poliinternational.com/tools/machine-voltage-configurator/)**
+
+---
+
+## 🚀 Installation
+
+### Option 1: Use Online (Recommended)
+
+No installation needed! Just visit:
+**[https://poliinternational.com/tools/machine-voltage-configurator/](https://poliinternational.com/tools/machine-voltage-configurator/)**
+
+### Option 2: Run Locally
+
+This tool is pure HTML/CSS/JS - no build step. Clone the repo and open `index.html`:
+
+```bash
+git clone https://github.com/Poli-International/machine-voltage-configurator.git
+cd machine-voltage-configurator
+# open index.html in your browser
 ```
 
 ---
 
-## 🚀 Deployment & Usage
+## 🤝 Contributing
 
-### Live Production
-This tool is integrated into the Poli International ecosystem via the **Poli Core System**. It features full synchronization with the site-wide dark mode and scientific wiki links.
-
-### Standalone Embed
-To use this tool on your own studio website, use the following iframe:
-
-```html
-<iframe src="https://poliinternational.com/wp-content/standalone-tools/machine-voltage-configurator/index.html" 
-        width="100%" 
-        height="1000" 
-        frameborder="0" 
-        style="border-radius: 12px; border: 1px solid #333;">
-</iframe>
-```
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ---
 
-## 🎨 Branding & Standards
+## 📄 License
 
-- **Theme:** Streetwise Dark Mode (Primary: #0693e3, Accent: #9b51e0)
-- **Naming:** BEM (Block Element Modifier)
-- **SEO Keywords:** Tattoo machine voltage, rotary machine speed, coil machine tuning, tattoo hertz calculator, lining voltage, shading power settings.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Credits
+## 💬 Support
 
-**Built by:** Claude Code Agent System (opencode)
-**Client:** Poli International
-**Scientific Foundation:** [Needle Geometry & Dermal Physics Wiki](https://poliinternational.com/wp-content/standalone-tools/standards/needle-geometry-physics.html)
+### Get Help
 
----
-
-## 📧 Contact & Support
-
-**Technical Support:** [patrick@poli-international.com](mailto:patrick@poli-international.com)
-**Support Innovation:** [Buy Me a Coffee](https://ko-fi.com/patrickkofi)
+- 📧 **Email**: <support@poliinternational.com>
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/Poli-International/machine-voltage-configurator/issues)
 
 ---
 
-© 2026 Poli International Ltd. | Precision Engineering for the Body Art Industry.
+<div align="center">
+
+**Made with ❤️ by [Poli International](https://poliinternational.com)**
+
+[Website](https://poliinternational.com) • [Tools](https://poliinternational.com/tools/) • [GitHub](https://github.com/Poli-International)
+
+</div>
