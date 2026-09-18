@@ -1,66 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
+    <script>
+if (window.self !== window.top) {
+    var poliRoot = document.documentElement;
+    var poliApply = function (light) {
+        poliRoot.setAttribute('data-theme', light ? 'light' : 'dark');
+        var b = document.body;
+        if (b) {
+            b.classList.toggle('dark-mode', !light);
+            b.classList.toggle('light-mode', !!light);
+        }
+    };
+    poliApply(false);
+    document.addEventListener('DOMContentLoaded', function () {
+        poliApply(poliRoot.getAttribute('data-theme') === 'light');
+    });
+    window.addEventListener('message', function (e) {
+        if (e.data && e.data.type === 'poli-theme') {
+            poliApply(!!e.data.light);
+        }
+    });
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tattoo Machine Voltage Configurator | Poli International</title>
-    <meta name="description" content="Professional voltage and speed calculator for tattoo machines. Find the optimal power settings for lining, shading, and color packing.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- IFRAME CONTENT HIDER -->
-    <script>
-    (function() {
-        'use strict';
-        if (window.self !== window.top) {
-            var style = document.createElement('style');
-            style.textContent = `
-                header, footer, .site-header, .site-footer, .breadcrumb-nav, 
-                .tool-discovery-map, .more-tools-section, .feedback-section, 
-                .related-tools-section, .geo-summary-block, .share-card, 
-                .need-support-card, .explore-all-card, #dark-toggle, 
-                .poli-footer, .poli-global-footer, .tool-standard-breadcrumbs,
-                .feedback-form-section, .email-section, .geo-authority-block { 
-                    display: none !important; 
-                    visibility: hidden !important; 
-                    height: 0 !important;
-                    overflow: hidden !important;
-                } 
-                body { padding: 0 !important; margin: 0 !important; background: transparent !important; }
-            `;
-            document.head.appendChild(style);
-        }
-    })();
-    </script>
-</head>
+    <link rel="stylesheet" href="/tools/machine-voltage-configurator/css/poli-standard.css">
+    <link rel="stylesheet" href="/tools/machine-voltage-configurator/css/style.css">
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Machine Voltage Configurator",
+  "url": "https://poliinternational.com/tools/machine-voltage-configurator/",
+  "description": "Find the right voltage and needle speed for your tattoo machine. Syncs stroke length with hand speed to protect skin and reduce wrist fatigue.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Poli International",
+    "url": "https://poliinternational.com"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Poli International",
+    "url": "https://poliinternational.com"
+  },
+  "maintainer": {
+    "@type": "Organization",
+    "name": "Poli International",
+    "url": "https://poliinternational.com"
+  },
+  "dateModified": "2026-07-01",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true
+}
+</script>
+
+  <script src="/js/input-guards.js"></script>
+<link rel="stylesheet" href="/tools/shared/print.css" media="print">
+  <link rel="stylesheet" href="/tools/shared/a11y.css">
+  </head>
 <body class="dark-mode">
+    <!-- Tool Tabs -->
+    <div class="tool-tabs" style="display:flex !important;background:#1a1a1a;border-bottom:2px solid #333;position:relative;z-index:999999;">
+        <button class="tool-tab active" data-tab="tool" style="flex:1;padding:1rem;background:#3B82F6;color:#fff;border:none;cursor:pointer;font-size:1rem;font-weight:600;">🧮 Tool</button>
+        <button class="tool-tab" data-tab="docs" style="flex:1;padding:1rem;background:#222;color:#ccc;border:none;cursor:pointer;font-size:1rem;font-weight:600;">📖 Documentation</button>
+        <button class="tool-tab" data-tab="embed" style="flex:1;padding:1rem;background:#222;color:#ccc;border:none;cursor:pointer;font-size:1rem;font-weight:600;">⚡ Embed Code</button>
+    </div>
 
-    <!-- STANDARD HEADER -->
-    <header class="site-header">
-        <div class="container site-header__container">
-            <div class="site-header__logo-container">
-                <img src="images/Poli-International-Co.webp" alt="Poli International" class="site-header__logo">
-            </div>
-            <div class="site-header__title-group">
-                <h2 class="site-header__title">Machine Voltage Configurator</h2>
-                <p class="site-header__subtitle">Optimal Power Calibration for Artists</p>
-            </div>
-            <div class="site-header__actions">
-                <button id="embedBtn" class="btn btn--primary btn--small">
-                    <span class="embed-icon">⚡</span>
-                    <span class="embed-text">Free Embed</span>
-                </button>
-                
-                <button id="darkModeToggle" class="btn btn--icon" aria-label="Toggle dark mode">
-                    <span class="dark-mode-icon">◐</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <main class="configurator-engine">
+    <!-- Tab Content: Tool -->
+    <div id="tab-tool" class="wrapper-tab-content">
+    <main class="tool-main-content">
         <div class="container">
             <div class="config-grid">
                 <!-- Inputs -->
@@ -114,90 +133,78 @@
                 </section>
             </div>
 
-            <!-- Detailed Breakdown -->
-            <section class="breakdown-area">
-                <div class="breakdown-card">
-                    <h4>Technical Analysis</h4>
-                    <div class="specs-list">
-                        <div class="spec-item">
-                            <span class="spec-label">Speed (Hertz)</span>
-                            <span id="speed-hz" class="spec-val">110 Hz</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Impact Force</span>
-                            <span id="impact-force" class="spec-val">Medium-Hard</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Duty Cycle</span>
-                            <span id="duty-cycle" class="spec-val">55%</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+    </main>
         </div>
     </main>
+    </div><!-- End tab-tool -->
 
-    <!-- STANDARD FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="site-footer__content">
-                <div class="site-footer__brand">
-                    <img src="images/Poli-International-Co.webp" alt="Poli International" class="site-footer__logo">
-                    <p class="site-footer__tagline">Scientific Precision in Dermal Pigmentation</p>
-                </div>
-                <div class="site-footer__support">
-                    <p class="support-text">Enjoying this professional tool? Support our innovation.</p>
-                    
-                </div>
-            </div>
-            <div class="site-footer__bottom">
-                <p class="copyright">© 2026 Poli International Ltd. | Professional Use Only</p>
-                <p class="disclaimer">⚠️ WARNING: Voltage requirements vary significantly by motor efficiency and skin resistance. Always start low and adjust based on visual feedback and needle depth.</p>
-            </div>
+    <!-- Tab Content: Documentation -->
+    <div id="tab-docs" class="wrapper-tab-content" style="display:none;padding:2rem 1rem;">
+        <iframe src="./documentation.html" style="width:100%;min-height:800px;border:none;background:#0f0f0f;"></iframe>
+    </div>
+
+    <!-- Tab Content: Embed -->
+    <div id="tab-embed" class="wrapper-tab-content" style="display:none;padding:2rem;text-align:center;">
+        <div style="background:#1a1a1a;padding:2rem;border-radius:8px;max-width:600px;margin:0 auto;">
+            <h2 style="color:#3B82F6;margin-bottom:1rem;">Embed This Tool</h2>
+            <p style="color:#ccc;margin-bottom:1rem;">Copy the code below to embed this tool on your website:</p>
+            <textarea id="embedCodeTab" style="width:100%;height:120px;background:#0f0f0f;color:#10B981;border:1px solid #333;border-radius:4px;padding:1rem;font-family:monospace;font-size:0.9rem;" readonly>&lt;iframe src="https://poliinternational.com/tools/machine-voltage-configurator/index.html" width="100%" height="1000" frameborder="0" style="border-radius:12px;"&gt;&lt;/iframe&gt;</textarea>
+            <button onclick="copyEmbedCode()" style="margin-top:1rem;padding:0.75rem 1.5rem;background:#3B82F6;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;">📋 Copy Code</button>
         </div>
-    </footer>
+    </div>
 
-    <!-- EMBED MODAL -->
     <div id="embedModal" class="modal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">🎁 Use This Tool FREE on Your Website!</h2>
+                <h2 class="modal-title" style="text-align: center;">🎁 Use This Tool FREE</h2>
                 <span class="modal-close" id="modalClose">&times;</span>
             </div>
             <div class="modal-body">
-                <p class="modal-description">Embed this professional voltage configurator on your studio site - completely free!</p>
-
                 <div class="modal-section">
-                    <h3 class="modal-section-title">📋 Copy Embed Code</h3>
+                    <h3>📋 Copy Embed Code</h3>
                     <div class="code-container">
                         <textarea id="embedCode" class="embed-code-textarea" readonly></textarea>
                         <button id="copyEmbedCode" class="btn btn--primary btn--small">📋 Copy Code</button>
                     </div>
                 </div>
-
-                <div class="modal-section">
-                    <h3 class="modal-section-title">💾 Download or Explore</h3>
-                    <div class="btn-group">
-                        <a href="embed.html" download class="btn btn--secondary">⬇️ Download HTML</a>
-                        <a href="https://poliinternational.com/tools" target="_blank" class="btn btn--primary">🔗 More Free Tools</a>
-                    </div>
-                </div>
-
-                <div class="modal-section">
-                    <h3 class="modal-section-title">🔔 Get Notified of New Tools!</h3>
-                    <form id="modal-email-form" class="email-form" data-location="modal">
-                        <div class="email-input-group">
-                            <input type="email" class="email-input" placeholder="Your email address" required>
-                            <button type="submit" class="btn btn--primary">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
-
-    <script src="js/database.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/common.js"></script>
+    <script src="/tools/machine-voltage-configurator/js/database.js"></script>
+    <script src="/tools/machine-voltage-configurator/js/main.js"></script>
+    <script src="/tools/machine-voltage-configurator/js/common.js"></script>
+    <script>
+    // Tool Tabs Functionality
+    document.querySelectorAll('.tool-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tool-tab').forEach(t => {
+                t.style.background = '#222';
+                t.style.color = '#ccc';
+            });
+            tab.style.background = '#3B82F6';
+            tab.style.color = '#fff';
+            const tabName = tab.dataset.tab;
+            document.querySelectorAll('.wrapper-tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById('tab-' + tabName).style.display = 'block';
+        });
+    });
+    function copyEmbedCode() {
+        const textarea = document.getElementById('embedCodeTab');
+        textarea.select();
+        document.execCommand('copy');
+        alert('Copied to clipboard!');
+    }
+    </script>
+<div style="text-align:center;padding:1rem;opacity:0.6;font-size:0.8rem;font-family:sans-serif;">
+    <a href="https://poliinternational.com/tools/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Powered by Poli International</a>
+</div>
+    <div class="powered-by-footer" style="text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem; background: rgba(0,0,0,0.2);">
+        <a href="https://poliinternational.com/machine-voltage-configurator/" target="_blank" rel="noopener" style="color: #3B82F6; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; opacity: 0.6; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+            POWERED BY POLI INTERNATIONAL
+        </a>
+    </div>
 </body>
 </html>
