@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Calculation
         let voltage = db.base_voltage + db.stroke_modifiers[stroke] + db.tech_modifiers[currentTech];
         
-        // Random variation to make it feel "real" or technical? No, keep it precise.
         voltage = Math.round(voltage * 10) / 10;
 
         // UI Updates
