@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (theme === 'light') {
             body.classList.add('light-mode');
             body.classList.remove('dark-mode');
+            document.documentElement.setAttribute('data-theme', 'light');
             if (themeToggle) {
                 const icon = themeToggle.querySelector('.dark-mode-icon') || themeToggle;
                 icon.textContent = '☀️';
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             body.classList.add('dark-mode');
             body.classList.remove('light-mode');
+            document.documentElement.setAttribute('data-theme', 'dark');
             if (themeToggle) {
                 const icon = themeToggle.querySelector('.dark-mode-icon') || themeToggle;
                 icon.textContent = '◐';
@@ -71,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const textarea = document.getElementById('embedCode');
 
     if (textarea) {
-        const cleanUrl = window.location.href.split('?')[0].split('#')[0];
-        textarea.value = `<iframe src="${cleanUrl}" width="100%" height="800" frameborder="0" style="border:1px solid #333; border-radius:12px;"></iframe>`;
+        textarea.value = `<iframe src="https://poliinternational.com/tools/machine-voltage-configurator/index.html" width="100%" height="900" frameborder="0" style="border-radius:12px;"></iframe>`;
     }
 
     if (embedBtn && modal) {
@@ -101,31 +102,10 @@ document.addEventListener('DOMContentLoaded', function() {
             textarea.select();
             navigator.clipboard.writeText(textarea.value).then(() => {
                 const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = '✅ Copied!';
+                const i18n = window.PoliI18n || { t: (k) => k };
+                copyBtn.innerHTML = i18n.t('embed.copied');
                 setTimeout(() => copyBtn.innerHTML = originalText, 2000);
             });
         });
     }
-
-    // ==========================================
-    // EMAIL FORM SIMULATION
-    // ==========================================
-    const emailForms = document.querySelectorAll('.email-form');
-    emailForms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const input = form.querySelector('input');
-            const btn = form.querySelector('button');
-            const originalText = btn.textContent;
-            
-            btn.textContent = '✅ Subscribed!';
-            btn.disabled = true;
-            input.value = '';
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }, 3000);
-        });
-    });
 });
