@@ -1,10 +1,8 @@
-# Machine Voltage Configurator
+# Machine Voltage Configurator (V2)
 
-> **Find the right voltage and needle speed for your tattoo machine. Syncs stroke length with hand speed to protect skin and reduce wrist fatigue.**
+> **Empirical starting voltage ranges, stroke mechanics visualizer, and station reference card for tattoo artists.**
 
 [![License](https://img.shields.io/github/license/Poli-International/machine-voltage-configurator)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/Poli-International/machine-voltage-configurator)](https://github.com/Poli-International/machine-voltage-configurator/commits/main)
-[![GitHub Stars](https://img.shields.io/github/stars/Poli-International/machine-voltage-configurator?style=social)](https://github.com/Poli-International/machine-voltage-configurator/stargazers)
 
 **Live Demo:** [https://poliinternational.com/tools/machine-voltage-configurator/](https://poliinternational.com/tools/machine-voltage-configurator/)
 
@@ -12,43 +10,32 @@
 
 ## 🎯 Overview
 
-Find the right voltage and needle speed for your tattoo machine. Syncs stroke length with hand speed to protect skin and reduce wrist fatigue.
+The **Machine Voltage Configurator (V2)** provides tattoo artists with an empirical starting voltage window based on machine architecture (rotary or coil), cam stroke length (2.5mm – 4.5mm), and intended tattooing technique (lining, shading, color packing, stippling). 
 
-**Category:** Tattoo Engineering
+It is designed as a baseline to tune from rather than an absolute rule: always prioritize the machine manufacturer's stated voltage operating limits.
 
-This is a free, open-source widget from the [Poli International Widget Suite](https://poliinternational.com/tools/) - a collection of practical tools for tattoo and piercing studios, artists, and clients. It runs entirely in the browser; no data is sent to a server.
+This is a free, open-source tool published by [Poli International](https://poliinternational.com/tools/) for tattoo artists and studio owners. It runs entirely in the browser with zero external dependencies and zero tracking.
 
 ---
 
 ## ✨ Features
 
-- ✅ **Tattoo Machine Voltage**
-- ✅ **Voltage Configurator**
-- ✅ **Tattoo Machine Settings**
-- ✅ **Needle Speed**
-- ✅ **Responsive Design** - works on desktop, tablet, and mobile.
-- ✅ **Free & Open Source** - MIT licensed.
+- **Starting Voltage Ranges**: Empirically grounded minimum and maximum starting windows with relative speed and punch profiles.
+- **Stroke & Speed Mechanics Visualizer**: Interactive SVG demonstrating that a longer stroke at the same voltage hits harder with greater momentum but cycles at a relatively lower frequency.
+- **My Machines (Personal Reference Card)**: Save custom machine settings, stroke, technique, tested voltage, needle configuration & taper, and session notes in local browser storage.
+- **Station Wall Printable Reference**: Generates a clean, print-optimized physical reference card with local timestamp.
+- **3-Tap Post-Session Evaluation**: Quick tags (`Worked Well`, `Too Soft / Bogged`, `Too Harsh / Chew`) to refine machine setups across client sessions.
+- **Connection & Supply Compatibility Checker**: Verifies machine connection type (RCA, clip cord, 3.5mm mini-jack, wireless battery), power supply amperage, and cables before powering up.
+- **Tuning by Feel & Mechanical Guides**: Practical studio checks for listening to motor pitch, inspecting needle entry, coil mechanical tuning order, and wireless battery voltage sag management.
+- **Zero External Dependencies**: Self-contained vanilla JavaScript, CSS custom properties, and SVG. No CDN links, no telemetry, runs under Content-Security-Policy `script-src 'self'` restrictions.
 
 ---
 
-## 🎬 Demo
+## 🚀 Usage & Deployment
 
-### Try It Live
+### Run Locally
 
-**👉 [Use the tool now](https://poliinternational.com/tools/machine-voltage-configurator/)**
-
----
-
-## 🚀 Installation
-
-### Option 1: Use Online (Recommended)
-
-No installation needed! Just visit:
-**[https://poliinternational.com/tools/machine-voltage-configurator/](https://poliinternational.com/tools/machine-voltage-configurator/)**
-
-### Option 2: Run Locally
-
-This tool is pure HTML/CSS/JS - no build step. Clone the repo and open `index.html`:
+Clone the repository and open `index.html` in any modern web browser:
 
 ```bash
 git clone https://github.com/Poli-International/machine-voltage-configurator.git
@@ -56,33 +43,15 @@ cd machine-voltage-configurator
 # open index.html in your browser
 ```
 
----
+Or serve via Node.js:
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+```bash
+npm install
+npm run dev
+```
 
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 💬 Support
-
-### Get Help
-
-- 📧 **Email**: <support@poliinternational.com>
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/Poli-International/machine-voltage-configurator/issues)
-
----
-
-<div align="center">
-
-**Made with ❤️ by [Poli International](https://poliinternational.com)**
-
-[Website](https://poliinternational.com) • [Tools](https://poliinternational.com/tools/) • [GitHub](https://github.com/Poli-International)
-
-</div>
