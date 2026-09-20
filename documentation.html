@@ -1,125 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="robots" content="noindex,nofollow">
+<head>
+    <meta name="robots" content="noindex, nofollow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Voltage Configurator Documentation | Poli International</title>
-    <meta name="description" content="Complete guide to using the Machine Voltage Configurator">
-    <link rel="canonical" href="https://poliinternational.com/machine-voltage-configurator-documentation/">
+    <title data-i18n="doc.page_title">Machine Voltage Configurator Documentation | Poli International</title>
+    <meta name="description" content="Technical reference guide and documentation for the Machine Voltage Configurator V2.">
     <style>
+        :root {
+            --bg-page: #0f172a;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --primary-color: #0693e3;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+        }
         body {
-            background: #0f0f0f !important;
-            color: #fff !important;
+            background: var(--bg-page);
+            color: var(--text-primary);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
-        /* Hide h1 when in iframe to avoid duplicate headings */
         body.in-iframe .doc-hero h1 { display: none !important; }
-        body.in-iframe .doc-hero { padding: 2rem 2rem !important; margin-bottom: 1rem !important; }
-        * {
-            box-sizing: border-box;
-        }
+        body.in-iframe .doc-hero { padding: 1.5rem 1rem !important; margin-bottom: 1rem !important; }
+        * { box-sizing: border-box; }
         .entry-content {
-            max-width: 900px !important;
-            margin: 0 auto !important;
-            padding: 2rem 1rem !important;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
         .doc-hero {
-            background: linear-gradient(135deg, #3B82F6, #8B5CF6) !important;
-            padding: 4rem 2rem !important;
-            text-align: center !important;
-            margin: -2rem -1rem 3rem !important;
-            border-radius: 0 !important;
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
         }
         .doc-hero h1 {
-            font-size: 2.5rem !important;
-            color: #fff !important;
-            margin: 0 0 1rem 0 !important;
-            font-weight: 700 !important;
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
         }
         .doc-hero p {
-            font-size: 1.25rem !important;
-            color: #E0E7FF !important;
-            margin: 0 !important;
+            font-size: 1.15rem;
+            color: #e0f2fe;
+            margin: 0;
         }
         .doc-section {
-            margin: 3rem 0 !important;
-            padding: 2rem !important;
-            background: #1a1a1a !important;
-            border-radius: 0.75rem !important;
-            border-left: 4px solid #3B82F6 !important;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
         }
         .doc-section h2 {
-            color: #3B82F6 !important;
-            font-size: 2rem !important;
-            margin: 0 0 1.5rem 0 !important;
-            font-weight: 600 !important;
+            color: #38bdf8;
+            font-size: 1.6rem;
+            margin: 0 0 1.25rem 0;
+            font-weight: 600;
         }
         .doc-section h3 {
-            color: #8B5CF6 !important;
-            font-size: 1.5rem !important;
-            margin: 2rem 0 1rem 0 !important;
-            font-weight: 600 !important;
+            color: #93c5fd;
+            font-size: 1.25rem;
+            margin: 1.75rem 0 0.75rem 0;
+            font-weight: 600;
         }
         .doc-section p {
-            color: #ccc !important;
-            line-height: 1.8 !important;
-            margin-bottom: 1rem !important;
-            font-size: 1.05rem !important;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
-        .doc-section ul {
-            margin: 1rem 0 !important;
-            padding-left: 0 !important;
-            list-style: none !important;
+        .doc-section ul, .doc-section ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
         }
-        .doc-section ul li {
-            padding: 0.75rem 0 0.75rem 2rem !important;
-            position: relative !important;
-            color: #ccc !important;
-            line-height: 1.6 !important;
+        .doc-section li {
+            margin-bottom: 0.5rem;
         }
-        .doc-section ul li:before {
-            content: "✓" !important;
-            position: absolute !important;
-            left: 0 !important;
-            color: #10B981 !important;
-            font-weight: bold !important;
-            font-size: 1.2rem !important;
+        .notice-box {
+            background: rgba(6, 147, 227, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
         }
-        .doc-section a {
-            color: #3B82F6 !important;
-            text-decoration: none !important;
-            font-weight: 600 !important;
-            transition: color 0.2s !important;
-        }
-        .doc-section a:hover {
-            color: #8B5CF6 !important;
-            text-decoration: underline !important;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, #1E3A8A, #4C1D95) !important;
-            padding: 1.5rem !important;
-            border-radius: 0.5rem !important;
-            margin: 2rem 0 !important;
-            border-left: 4px solid #10B981 !important;
-        }
-        .highlight-box p {
-            color: #E0E7FF !important;
-            margin-bottom: 0 !important;
-        }
-        .back-link {
-            display: inline-block !important;
-            padding: 0.75rem 1.5rem !important;
-            background: #3B82F6 !important;
-            color: #fff !important;
-            text-decoration: none !important;
-            border-radius: 0.5rem !important;
-            font-weight: 600 !important;
-            margin-top: 2rem !important;
-        }
-        .back-link:hover {
-            background: #8B5CF6 !important;
+        .notice-box.warning {
+            background: rgba(245, 158, 11, 0.12);
+            border-left-color: var(--accent-amber);
         }
         table {
             width: 100%;
@@ -127,217 +101,237 @@
             margin: 1.5rem 0;
         }
         th, td {
-            padding: 1rem;
+            padding: 0.85rem 1rem;
             text-align: left;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
         }
         th {
-            background: #2a2a2a;
-            color: #3B82F6;
+            background: rgba(15, 23, 42, 0.7);
+            color: #38bdf8;
         }
         td {
-            color: #ccc;
+            color: var(--text-secondary);
+        }
+        .back-link-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            opacity: 0.9;
         }
         code {
-            background: #2a2a2a;
-            padding: 0.2rem 0.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0.2rem 0.4rem;
             border-radius: 4px;
-            color: #10B981;
+            color: #38bdf8;
+            font-family: monospace;
+        }
+        .doc-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .doc-top-bar .back-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        .doc-top-bar .lang-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .doc-top-bar label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .doc-top-bar select {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 <script>
-    // Detect if loaded in iframe and add class to hide h1
     if (window.self !== window.top) {
         document.body.classList.add('in-iframe');
     }
 </script>
+
     <div class="entry-content">
+        <div class="doc-top-bar">
+            <a href="./index.html" class="back-link" data-i18n="doc.back_link">⬅ Return to Configurator</a>
+            <div class="lang-control">
+                <label for="langSelect" data-i18n="lang.select.label">Language:</label>
+                <select id="langSelect">
+                    <option value="en" data-i18n="lang.en">English</option>
+                    <option value="de" data-i18n="lang.de">German</option>
+                    <option value="es" data-i18n="lang.es">Spanish</option>
+                    <option value="fr" data-i18n="lang.fr">French</option>
+                    <option value="it" data-i18n="lang.it">Italian</option>
+                    <option value="pt" data-i18n="lang.pt">Portuguese</option>
+                    <option value="nl" data-i18n="lang.nl">Dutch</option>
+                </select>
+            </div>
+        </div>
         <div class="doc-hero">
-            <h1>Machine Voltage Configurator Documentation</h1>
-            <p>Professional voltage and speed calibration tool for rotary and coil tattoo machines</p>
+            <h1 data-i18n="doc.hero_title">Machine Voltage Configurator Documentation</h1>
+            <p data-i18n="doc.hero_subtitle">Power Supply &amp; Stroke Calibration Reference for Tattoo Artists</p>
         </div>
 
         <div class="doc-section">
-            <h2>Overview</h2>
-            <p>The <strong>Machine Voltage Configurator</strong> gives a tattoo artist a starting voltage to dial in from, based on machine type, stroke length and technique. It is a starting point, not a calibration: machines, motors, springs, grips and power supplies vary enough that the right setting is the one you find on your own machine, on skin, by ear and by feel. Read the number as "begin about here", then adjust.</p>
+            <h2 data-i18n="doc.overview.title">Overview</h2>
+            <p><span data-i18n="doc.overview.p1_prefix">The</span> <strong data-i18n="doc.overview.p1_strong">Machine Voltage Configurator (V2)</strong> <span data-i18n="doc.overview.p1_suffix">provides tattoo artists with an empirical starting voltage window based on machine architecture, stroke throw length, and intended tattooing technique. It also visualizes stroke mechanics, stores personal machine settings locally, checks connection and power supply compatibility, and provides practical studio tuning guidelines.</span></p>
+
+            <div class="notice-box warning">
+                <strong data-i18n="doc.overview.disclaimer_title">Readout Disclaimer:</strong> <span data-i18n="doc.overview.disclaimer_body">The digital readout on a bench supply or wireless battery pack displays what the unit is delivering to the connection lead or motor terminal. It does not measure the actual mechanical punch or frequency delivered at the needle tip. Wire resistance, cartridge membrane stiffness, motor inertia, and skin elasticity influence operating dynamics. Use your eyes, ears, and hand feedback rather than treating voltage numbers as absolute truth.</span>
+            </div>
         </div>
 
         <div class="doc-section">
-            <h2>Key Features</h2>
+            <h2 data-i18n="doc.features.title">Core Features</h2>
             <ul>
-                <li><strong>Dynamic Voltage Dial</strong> - Interactive SVG-based visualization of power output with 0.1V adjustment increments</li>
-                <li><strong>Machine Type Mapping</strong> - Calibration for slider and pen-style rotary motors, plus traditional coil profiles</li>
-                <li><strong>Technique-Specific Hertz Engine</strong> - Optimized settings for lining, shading, color packing, and stippling</li>
-                <li><strong>Technical Analysis Hub</strong> - Real-time Volts to Hertz conversion and impact force estimation</li>
+                <li><strong data-i18n="doc.features.range_title">Starting Voltage Ranges (Min / Max):</strong> <span data-i18n="doc.features.range_body">Empirical starting windows rather than single "optimal" numbers. Artists are instructed to follow the machine manufacturer's specified voltage limits.</span></li>
+                <li><strong data-i18n="doc.features.visualizer_title">Stroke &amp; Speed Mechanics Visualizer:</strong> <span data-i18n="doc.features.visualizer_body">An interactive SVG diagram demonstrating that at identical voltages, a longer stroke travels a greater distance per cycle, producing more punch momentum at a relatively lower cycle frequency.</span></li>
+                <li><strong data-i18n="doc.features.my_machines_title">My Machines (Station Reference Card):</strong> <span data-i18n="doc.features.my_machines_body">Artists can record their tested machine settings, stroke, technique, voltage, needle configurations, and notes directly in their browser. Includes a one-click print function to produce a wall reference card for the workstation.</span></li>
+                <li><strong data-i18n="doc.features.evaluation_title">3-Tap Post-Session Evaluation:</strong> <span data-i18n="doc.features.evaluation_body">Quick assessment tags (Worked Well, Too Soft / Bogged, Too Harsh / Chew) to refine setups across client sessions.</span></li>
+                <li><strong data-i18n="doc.features.compat_title">Connection &amp; Supply Compatibility Checker:</strong> <span data-i18n="doc.features.compat_body">Pre-session checklist matching RCA, clipcord, mini-jack, and wireless battery configurations to power supply amperages and leads.</span></li>
+                <li><strong data-i18n="doc.features.tuning_title">Studio Tuning Guide:</strong> <span data-i18n="doc.features.tuning_body">Practical steps for listening to motor pitch, inspecting needle entry, coil mechanical tuning order, and wireless battery voltage sag management.</span></li>
             </ul>
         </div>
 
         <div class="doc-section">
-            <h2>How to Use</h2>
-            <h3>1. Select Machine Type</h3>
-            <p>Choose between Rotary (slider/pen-style) or Coil (traditional electromagnetic) machines.</p>
-            
-            <h3>2. Set Stroke Length</h3>
-            <p>Configure your machine's stroke length (2.5mm - 4.5mm) for accurate calculations.</p>
-            
-            <h3>3. Choose Technique</h3>
-            <p>Select your intended technique: Lining, Shading, Color Packing, or Stippling.</p>
-            
-            <h3>4. Adjust Voltage</h3>
-            <p>Use the interactive dial to set your voltage and see real-time Hz and impact force calculations.</p>
-        </div>
+            <h2 data-i18n="doc.baselines.title">Starting Voltage Baselines</h2>
+            <p data-i18n="doc.baselines.intro">The configurator applies empirical starting ranges derived from professional studio practice. Below is the reference starting grid:</p>
 
-        <div class="doc-section">
-            <h2>Machine Parameters</h2>
             <table>
-                <tr>
-                    <th>Machine Type</th>
-                    <th>Base Voltage</th>
-                    <th>Hz Constant</th>
-                </tr>
-                <tr>
-                    <td>Rotary</td>
-                    <td>5.0V</td>
-                    <td>15 Hz/V</td>
-                </tr>
-                <tr>
-                    <td>Coil</td>
-                    <td>4.5V</td>
-                    <td>18 Hz/V</td>
-                </tr>
-            </table>
-
-            <h3>Stroke Modifiers</h3>
-            <p>These are the rotary figures. The coil column differs slightly: -0.2V at 2.5mm, +1.2V at 4.0mm and +2.0V at 4.5mm.</p>
-            <table>
-                <tr>
-                    <th>Stroke Length</th>
-                    <th>Voltage Adjustment</th>
-                    <th>Reason</th>
-                </tr>
-                <tr>
-                    <td>2.5mm</td>
-                    <td>-0.5V</td>
-                    <td>Reduced mass momentum</td>
-                </tr>
-                <tr>
-                    <td>3.0mm</td>
-                    <td>0.0V</td>
-                    <td>Reference stroke, no adjustment</td>
-                </tr>
-                <tr>
-                    <td>3.5mm</td>
-                    <td>+0.5V</td>
-                    <td>Standard equilibrium</td>
-                </tr>
-                <tr>
-                    <td>4.0mm</td>
-                    <td>+1.0V</td>
-                    <td>Longer throw, more work per cycle</td>
-                </tr>
-                <tr>
-                    <td>4.5mm</td>
-                    <td>+1.5V</td>
-                    <td>High resistance compensation</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th data-i18n="doc.baselines.th_arch">Machine Architecture</th>
+                        <th data-i18n="doc.baselines.th_stroke">Stroke (Cam Throw)</th>
+                        <th data-i18n="doc.baselines.th_lining">Lining Baseline</th>
+                        <th data-i18n="doc.baselines.th_shading">Shading Baseline</th>
+                        <th data-i18n="doc.baselines.th_packing">Color Packing Baseline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="doc.baselines.rotary_name">Rotary (Pen / Slider / Direct)</td>
+                        <td data-i18n="doc.baselines.stroke_25">2.5 mm (Short)</td>
+                        <td>5.7V – 7.8V</td>
+                        <td>4.5V – 6.5V</td>
+                        <td>6.0V – 8.2V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.rotary_name">Rotary (Pen / Slider / Direct)</td>
+                        <td data-i18n="doc.baselines.stroke_30">3.0 mm (Short-Med)</td>
+                        <td>6.2V – 8.3V</td>
+                        <td>5.0V – 7.0V</td>
+                        <td>6.5V – 8.7V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.rotary_name">Rotary (Pen / Slider / Direct)</td>
+                        <td data-i18n="doc.baselines.stroke_35">3.5 mm (Medium)</td>
+                        <td>6.7V – 8.8V</td>
+                        <td>5.5V – 7.5V</td>
+                        <td>7.0V – 9.2V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.rotary_name">Rotary (Pen / Slider / Direct)</td>
+                        <td data-i18n="doc.baselines.stroke_40">4.0 mm (Long)</td>
+                        <td>7.2V – 9.4V</td>
+                        <td>6.0V – 8.1V</td>
+                        <td>7.5V – 9.8V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.rotary_name">Rotary (Pen / Slider / Direct)</td>
+                        <td data-i18n="doc.baselines.stroke_45">4.5 mm (Heavy)</td>
+                        <td>7.7V – 10.0V</td>
+                        <td>6.5V – 8.7V</td>
+                        <td>8.0V – 10.5V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.coil_name">Coil (Armature Bar)</td>
+                        <td data-i18n="doc.baselines.stroke_coil_35">3.5 mm (Standard)</td>
+                        <td>7.2V – 9.5V</td>
+                        <td>5.6V – 7.8V</td>
+                        <td>7.4V – 9.8V</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="doc.baselines.coil_name">Coil (Armature Bar)</td>
+                        <td data-i18n="doc.baselines.stroke_coil_40">4.0 mm (Long)</td>
+                        <td>7.9V – 10.4V</td>
+                        <td>6.3V – 8.7V</td>
+                        <td>8.1V – 10.7V</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
         <div class="doc-section">
-            <h2>Technique Hz Ranges</h2>
-            <table>
-                <tr>
-                    <th>Technique</th>
-                    <th>Hz Range</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>Lining</td>
-                    <td>100-140Hz</td>
-                    <td>Fast, sharp retraction</td>
-                </tr>
-                <tr>
-                    <td>Shading</td>
-                    <td>70-90Hz</td>
-                    <td>Soft impact, low trauma</td>
-                </tr>
-                <tr>
-                    <td>Color Packing</td>
-                    <td>Variable</td>
-                    <td>High-torque saturation</td>
-                </tr>
-                <tr>
-                    <td>Stippling</td>
-                    <td>Variable</td>
-                    <td>Controlled pulse intervals</td>
-                </tr>
-            </table>
+            <h2 data-i18n="doc.tuning.title">Tuning on Practice Skin</h2>
+            <ol>
+                <li><strong data-i18n="doc.tuning.step1_title">Listen to the Motor Pitch:</strong> <span data-i18n="doc.tuning.step1_body">A healthy rotary motor hums with a steady frequency. If the motor sags, sputters, or drops pitch when entering skin, it is struggling against cartridge membrane resistance or needle friction. If it emits a high-pitched whine, it is over-revving.</span></li>
+                <li><strong data-i18n="doc.tuning.step2_title">Inspect the Line &amp; Deposit:</strong> <span data-i18n="doc.tuning.step2_body">Linework should deposit smoothly on a steady continuous pass. If the needle skips or snags, consider whether stroke length or voltage requires a 0.2V-0.4V upward adjustment. For shading, look for controlled stippling rather than cutting.</span></li>
+                <li><strong data-i18n="doc.tuning.step3_title">Adjust in Small Increments:</strong> <span data-i18n="doc.tuning.step3_body">Never adjust by full volts. Tune in 0.2V to 0.5V steps and make multiple passes before re-adjusting.</span></li>
+            </ol>
         </div>
 
         <div class="doc-section">
-            <h2>Technical Details</h2>
-            <p>The arithmetic is deliberately simple, and it is worth being plain about what it is and is not. It adds three hand-set numbers together:</p>
-            <p><code>voltage = baseVoltage + strokeModifier[length] + techniqueModifier[technique]</code></p>
-            <p><code>speedHz = voltage × hertzConstant[machineType]</code></p>
-            <p><code>impactForce = "Soft" below 6.5V, "Hard" above 8.5V, "Medium" between</code></p>
-            <p><strong>These constants are not measured values and they are not taken from a published source.</strong> They are a plausible starting grid, nothing more. The volts-to-hertz figure in particular is a rough proportion: on a rotary the motor speed does broadly follow the voltage, but on a coil machine the frequency is set mostly by the spring tension, the contact screw gap and the armature bar, so the same voltage on two coil machines will not give the same hertz. Do not quote these numbers as specifications, and do not use them in place of your machine manufacturer’s own guidance.</p>
+            <h2 data-i18n="doc.coil.title">Coil Machine Tuning Order</h2>
+            <p data-i18n="doc.coil.intro">On traditional electromagnetic coil machines, voltage only adjusts the strength of the magnetic field in the coil cores. The actual operating frequency and hit character are dictated by mechanical geometry:</p>
+            <ol>
+                <li><strong data-i18n="doc.coil.step1_title">Mechanical Alignment:</strong> <span data-i18n="doc.coil.step1_body">Ensure the armature bar, grommet/nipple, and needle bar sit parallel without binding inside the tube.</span></li>
+                <li><strong data-i18n="doc.coil.step2_title">Contact Screw Gap:</strong> <span data-i18n="doc.coil.step2_body">Set the contact gap physically before applying power (approximate dime-thickness for liners, nickel-thickness for shaders).</span></li>
+                <li><strong data-i18n="doc.coil.step3_title">Spring Gauge &amp; Tension:</strong> <span data-i18n="doc.coil.step3_body">Adjust rear spring angle to balance return speed before touching the voltage dial.</span></li>
+                <li><strong data-i18n="doc.coil.step4_title">Voltage Calibration:</strong> <span data-i18n="doc.coil.step4_body">Adjust the power supply dial only after springs and contact points are mechanically balanced.</span></li>
+            </ol>
+            <div class="notice-box warning">
+                <strong data-i18n="doc.coil.notice_title">Important:</strong> <span data-i18n="doc.coil.notice_body">Increasing voltage on an untuned coil machine cannot compensate for fatigued springs, pitted contact points, or mismatched capacitors. Over-volting untuned coils causes heavy arcing, hot coils, and rapid contact erosion.</span>
+            </div>
         </div>
 
-                <div class="doc-section">
-            <h2>Practical Use Cases</h2>
-            <div class="use-case">
-                <h3 style="color: #10B981 !important;">For Studio Owners</h3>
-                <p>Standardize your studio's technical protocols and pricing models to ensure consistency across all artists and residents.</p>
-            </div>
-            <div class="use-case">
-                <h3 style="color: #10B981 !important;">For Apprentices</h3>
-                <p>Use these tools as an educational framework to learn the complex relationship between geometry, biology, and procedural safety.</p>
-            </div>
-        </div><div class="doc-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item" style="margin-bottom: 1.5rem;">
-                <p><strong>What voltage is safe for my motor?</strong></p>
-                <p>Always check your machine's manual. Most modern rotaries are designed for a 4V to 12V operating range.</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 1.5rem;">
-                <p><strong>How do I convert Volts to Hertz?</strong></p>
-                <p>Use our configurator to input your machine's 'Motor RPM per Volt' to see the exact Hertz (hits per second).</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 1.5rem;">
-                <p><strong>Does higher voltage mean more depth?</strong></p>
-                <p>No. Voltage controls speed. Depth is controlled by your machine's 'Hang' and your physical hand pressure.</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 1.5rem;">
-                <p><strong>Why does my machine slow down on skin?</strong></p>
-                <p>This is 'Drag.' You may need to increase voltage slightly or use a machine with higher 'Torque.'</p>
-            </div>
-            <div class="faq-item" style="margin-bottom: 1.5rem;">
-                <p><strong>Is wireless power less consistent?</strong></p>
-                <p>High-end battery packs are extremely stable and match traditional power supplies in consistency.</p>
-            </div>
-        </div>        <div class="doc-section" style="text-align: center; border-left: none !important; background: linear-gradient(135deg, #111, #222) !important;">
-            <h2>Need Technical Support?</h2>
-            <p>If you encounter issues with this tool or need custom integration assistance, our engineering team is here to help.</p>
-            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; align-items: center;">
-                <a href="https://poliinternational.com/contact-us/" class="btn-primary" style="padding: 1rem 2.5rem; text-decoration: none; border-radius: 0.5rem; background: #669eff; color: #FFFFFF !important; font-weight: 800; font-size: 1.1rem; border: none;">Contact Us!</a>
-                
-            </div>
-        </div>        <div style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid #333; opacity: 0.8;">
-            <p style="font-size: 0.95rem; color: #888; line-height: 1.6;">
-                Technical Standard provided by <br/>
-                <a href="https://poliinternational.com/machine-voltage-configurator/" style="color: #3B82F6; text-decoration: none; font-weight: 800; font-size: 1.2rem; display: block; margin-top: 0.5rem;">Powered by Poli International Engineering</a>
-            </p>
-        </div>        <div class="doc-section">
-            <h2>Related Tools</h2>
-            <p>Explore more professional tools from the Poli International engineering suite:</p>
+        <div class="doc-section">
+            <h2 data-i18n="doc.wireless.title">Wireless Battery Pack Characteristics</h2>
             <ul>
-                <li><a href="/tattoo-price-estimator/">AI Price Estimator</a> - Cost & Image Studio</li>
-                <li><a href="/gauge-converter/">Gauge Converter</a> - Millimeter & AWG conversion</li>
-                <li><a href="/coverage-calculator/">Coverage Calculator</a> - Ink & Session planning</li>
+                <li><strong data-i18n="doc.wireless.sag_title">Voltage Sag Under Load:</strong> <span data-i18n="doc.wireless.sag_body">Compact wireless packs run internal DC-DC step-up converters. Under heavy cartridge membrane resistance, actual output can sag 0.3V to 0.7V compared to heavy bench transformer supplies.</span></li>
+                <li><strong data-i18n="doc.wireless.jump_title">Jumpstart Pulse:</strong> <span data-i18n="doc.wireless.jump_body">Many brushless rotary motors require an initial 9V-12V burst to overcome cartridge membrane resistance from a standstill. Verify if your battery pack includes a jumpstart feature if your motor struggles to turn over at low voltages.</span></li>
+                <li><strong data-i18n="doc.wireless.flutter_title">Low-Charge Flutter:</strong> <span data-i18n="doc.wireless.flutter_body">When battery charge falls below 20-25%, budget step-up circuits may produce subtle voltage fluctuations. Always keep a backup battery fully charged and swap before the primary pack enters low charge.</span></li>
             </ul>
-        </div><div style="text-align: center; margin-bottom: 4rem;"><a href="https://poliinternational.com/machine-voltage-configurator/" class="back-link" style="display: inline-block !important;">? Go to Tool</a></div>
+        </div>
+
+        <div class="doc-section">
+            <h2 data-i18n="doc.tools.title">Related Studio Tools</h2>
+            <p data-i18n="doc.tools.intro">Poli International publishes free open-source tools for tattoo artists, piercers, and studio owners:</p>
+            <ul>
+                <li><a href="https://poliinternational.com/needle-selector/" target="_top" data-i18n="doc.tools.needle">Needle Selector</a> <span data-i18n="doc.tools.needle_desc">- Needle configuration, taper, and grouping guide</span></li>
+                <li><a href="https://poliinternational.com/power-supply-troubleshooter/" target="_top" data-i18n="doc.tools.power">Power Supply Troubleshooter</a> <span data-i18n="doc.tools.power_desc">- Diagnostic steps for voltage drop, intermittent cutoffs, and cord shorts</span></li>
+                <li><a href="https://poliinternational.com/machine-maintenance-logbook/" target="_top" data-i18n="doc.tools.logbook">Machine Maintenance Logbook</a> <span data-i18n="doc.tools.logbook_desc">- Service intervals, lubrication, spring replacement, and motor maintenance logs</span></li>
+                <li><a href="https://poliinternational.com/tools/" target="_top" data-i18n="doc.tools.all">All Free Studio Tools</a> <span data-i18n="doc.tools.all_desc">- Complete suite of professional studio calculators and references</span></li>
+            </ul>
+        </div>
+
+        <div class="back-link-container">
+            <a href="./index.html" class="back-link" data-i18n="doc.back_link">⬅ Return to Configurator</a>
+        </div>
     </div>
+    <script src="./js/i18n.js"></script>
 </body>
 </html>
