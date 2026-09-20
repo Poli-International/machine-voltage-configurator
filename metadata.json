@@ -1,0 +1,8 @@
+{
+  "name": "Machine Voltage Configurator-V2",
+  "description": "Calculate starting voltage ranges, stroke mechanics, and printable reference cards for rotary and coil tattoo machines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
